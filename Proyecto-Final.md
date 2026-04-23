@@ -72,41 +72,77 @@ td, th {
 
 Este proyecto se basa en una aplicación de reserva de entradas de un cine, similar al estilo de la web de <a href="https://odeonmulticines.com"> odeon multicines</a>. Tiene 6 vistas diferentes:
 
-### Vista de inicio de sesion y registro
+### Vista de inicio de sesión
 
 En esta vista el usuario se podra iniciar sesion y registrarse, al hacerlo el panel de navegacion cambiara para mostrar el nombre del usuario logeado. Si el usuario es admin se mostrara la pestaña de gestion de usuarios.
 
-<img src="https://github.com/JoanP27/ProyectoDI/blob/main/LoginIn.png?raw=true">
+<img src="https://github.com/JoanP27/ProyectoDI/blob/main/login2.jpg?raw=true">
+
+<section class="page-break"></section>
 
 ### Vista de cartelera
 
 La vista de la cartelera mostrara las diferentes peliculas que tiene el cine actualmente, al hacer click en cualquiera de ellas nos llevara a las sesiones que tiene esa pelicula en concreto.
 
-<img src="https://github.com/JoanP27/ProyectoDI/blob/main/Cartelera-logout.png?raw=true">
+<img src="https://github.com/JoanP27/ProyectoDI/blob/main/cartelera.jpg?raw=true">
 
 ### Vista de sesiones
 
 La vista de sesiones lista las diferentes sesiones de una o varias peliculas segun el dia en el que cliquemos. En la parte superior se muestra una lista con varios dias de la semana que podemos clicar. Al hacer click en alguna de las horas de una sesion, accederemos a a la vista de seleccion de asientos
 
-<img src="https://github.com/JoanP27/ProyectoDI/blob/main/Sesiones-logout.png?raw=true">
+<img src="https://github.com/JoanP27/ProyectoDI/blob/main/sesiones.jpg?raw=true">
+
+<section class="page-break"></section>
 
 ### Vista de seleccion de asientos
 
 En esta vista podremos ver las diferentes filas y asientos de la sala donde se reproducira la pelicula, los asientos pueden estar vacios o ocupados, se puede pulsar en los asientos vacios para poder reservarlos, tras reservar los asientos se podra pulsar en siguiente o en cancelar. Al pulsar siguiente accederemos a la vista de compra de entradas.
 
-<img src="https://github.com/JoanP27/ProyectoDI/blob/main/SeleccionarAsientos-login.png?raw=true">
+<img src="https://github.com/JoanP27/ProyectoDI/blob/main/asientos.jpg?raw=true">
 
 ### Vista de compra de entradas
 
-En esta vista se muestra un resumen de todas las entradas compradas con la posibilidad de quitarlas si se desea. Debajo de la lista de entradas se muestra el subtotal de todas las entradas y los botones de comprar y cancelar, al pulsar comprar se compraran las entradas para el usuario con la sesion iniciada y se imprimira una pdf con el recivo y el codigo de la entrada
+En esta vista se muestra un resumen de todas las entradas compradas con la posibilidad de quitarlas si se desea. Debajo de la lista de entradas se muestra el subtotal de todas las entradas y los botones de comprar y cancelar, al pulsar comprar se compraran las entradas para el usuario con la sesion iniciada y se imprimira una pdf con el recibo y el codigo de la entrada
 
-<img src="https://github.com/JoanP27/ProyectoDI/blob/main/Comprar-entradas-login.png?raw=true">
+<img src="https://github.com/JoanP27/ProyectoDI/blob/main/compra.jpg?raw=true">
 
 <section class="page-break"></section>
+
+
+### Vista de CRUD de usuarios
+
+En esta vista se permite la creacion, edicion y eliminacion de los usuarios, pudiendo seleccionar el usuario en la lista
+
+<img src="https://github.com/JoanP27/ProyectoDI/blob/main/usuarios-2.jpg?raw=true">
+
+### Vista de CRUD de peliculas
+
+En esta vista se permite la creacion, edicion y eliminacion de las películas del cine, pudiendo seleccionar la película en la lista
+
+<img src="https://github.com/JoanP27/ProyectoDI/blob/main/peliculas-2.jpg?raw=true">
+
+<section class="page-break"></section>
+
+### Vista de CRUD de sesiones
+
+En esta vista se permite la creacion, edicion y eliminacion de las sesiones de pelicula, pdiendo seleccionar la película en la lista mostrando sus sesiones
+
+<img src="https://github.com/JoanP27/ProyectoDI/blob/main/sesiones-edit.jpg?raw=true">
+
+<section class="page-break"></section>
+
+## Origen de datos:
+
+Por el momento en este proyecto usare la base de datos de **SQL Server**
+
 
 ## Estructura del proyecto
 
 ### Models
+
+
+
+
 
 <table>
 <thead>
@@ -133,7 +169,7 @@ En esta vista se muestra un resumen de todas las entradas compradas con la posib
 
 <tr>
 <td>Película</td>
-<td>El modelo que representa una pelucula del cine</td>
+<td>El modelo que representa una película del cine</td>
 <td>
 <ul>
 <li> Id<b> (Tipo: int, Clave Primaria)</b> </li>
@@ -302,6 +338,26 @@ UsuariosCrudView
 Esta vista muestra una lista de usuarios y permite la eliminacion, registro y modificacion de los usuarios. Solo un usuario <b>administrador</b> podra acceder a esta vista.
 </td>
 </tr>
+</tr>
+<tr>
+<td>
+PeliculasCrudView
+</td>
+<td>
+Esta vista muestra una lista de películas y permite la eliminacion, registro y modificación de las películas. Solo un usuario <b>administrador</b> podra acceder a esta vista.
+</td>
+</tr>
+</tr>
+<tr>
+<td>
+SesionesCrudView
+</td>
+<td>
+Esta vista muestra una lista de sesiones dependiendo de la película seleccionada y permite la eliminacion, registro y modificacion de las sesiones. Solo un usuario <b>administrador</b> podra acceder a esta vista.
+</td>
+</tr>
+
+
 </tbody>
 </table>
 
@@ -447,8 +503,48 @@ Esta vista muestra una lista de usuarios y permite la eliminacion, registro y mo
 </ul>
 </td>
 </tr>
+
+<tr>
+<td>PeliculasCrudViewModel</td>
+<td>
+<ul>
+<li><b>VisibleFilmList(ObservableCollection&lt;Pelicula&gt;)</b></li>
+<li><b>SelectedFilm(Pelicula)</b></li>
+<li><b>Title: </b> Titulo de la película </li>
+<li><b>Description: </b> Descripción de la película</li>
+<li><b>ImageUrl: </b> Url de la imagen de la película </li>
+</ul>
+</td>
+<td>
+<ul>
+<li><b>SaveFilmCommand(ICommand)</b></li>
+<li><b>RemoveFilmCommand(ICommand)</b></li>
+<li><b>SelectedFilmChangedCommand(ICommand)</b></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>SesionesCrudViewModel</td>
+<td>
+<ul>
+<li><b>VisibleFilmList(ObservableCollection&lt;Pelicula&gt;)</b></li>
+<li><b>SelectedFilm(Pelicula)</b></li>
+<li><b>VisibleSesionesList(ObservableCollection&lt;Sesion&gt;)</b></li>
+</ul>
+</td>
+<td>
+<ul>
+<li><b>SaveSesionCommand(ICommand<Sesion>)</b></li>
+<li><b>RemoveSesionCommand(ICommand<Sesion>)</b></li>
+<li><b>SelectedFilmChangedCommand(ICommand)</b></li>
+</ul>
+</td>
+</tr>
 </tbody>
 </table>
+
+
 
 <section class="page-break"></section>
 
@@ -577,7 +673,3 @@ Esta vista muestra una lista de usuarios y permite la eliminacion, registro y mo
 ## Enlaces
 
 Proyecto de figma: <a href="https://www.figma.com/design/C5zsXY6dWEGKVrvBfbVvJh/Proyecto-final-Dise%C3%B1o-Interfaces?node-id=0-1&m=dev&t=YRZr95skbGLP00S3-1">[enlace]</a>
-
-
-
-

@@ -429,12 +429,12 @@ Esta vista muestra una lista de sesiones dependiendo de la película seleccionad
 <td>CarteleraViewModel</td>
 <td>
 <ul>
-<li><b>FilmList(ObservableCollection&lt;Film&gt;):</b> Lista de Peliculas en la cartelera</li>
+<li><b>FilmList(ObservableCollection&lt;Pelicula&gt;):</b> Lista de Peliculas en la cartelera</li>
 </ul>
 </td>
 <td>
 <ul>
-<li><b>ViewFilmSessionsCommand(ICommand&lt;Film&gt;): </b> Navega a la ventana de sesiones donde se mostraran las sesiones de esa pelicula </li>
+<li><b>ViewFilmSessionsCommand(ICommand&lt;int&gt;): </b> Navega a la ventana de sesiones donde se mostraran las sesiones de esa pelicula </li>
 </ul>
 </td>
 </tr>
@@ -443,13 +443,13 @@ Esta vista muestra una lista de sesiones dependiendo de la película seleccionad
 <td>SesionesViewModel</td>
 <td>
 <ul>
-<li><b>VisibleFilmList(ObservableCollection&lt;Session&gt;): </b> Lista de peliculas visible en la view</li>
-<li><b>DateList(ObservableCollection&lt;DateTime&gt;): </b> Lista de dias seleccionables</li>
+<li><b>VisibleFilmList(ObservableCollection&lt;Sesion&gt;): </b> Lista de peliculas visible en la view</li>
+<li><b>FechasVisibles(ObservableCollection&lt;DateTime&gt;): </b> Lista de dias seleccionables</li>
 </ul>
 </td>
 <td>
 <ul>
-<li><b>ViewSeatsCommand(ICommand&lt;Session&gt;):</b> Navega a la view de seleccion de asientos</li>
+<li><b>ViewSeatsCommand(ICommand&lt;Sesion&gt;):</b> Navega a la view de seleccion de asientos</li>
 </ul>
 </td>
 </tr>

@@ -74,7 +74,7 @@ Este proyecto se basa en una aplicación de reserva de entradas de un cine, simi
 
 ### Vista de inicio de sesión
 
-En esta vista el usuario se podra iniciar sesion y registrarse, al hacerlo el panel de navegacion cambiara para mostrar el nombre del usuario logeado. Si el usuario es admin se mostrara la pestaña de gestion de usuarios.
+En esta vista el usuario se podra iniciar sesion y registrarse, al hacerlo el panel de navegacion cambiara para mostrar el nombre del usuario con la sesión iniciada. Si el usuario es admin se mostrara la pestaña de gestion de usuarios.
 
 <img src="https://github.com/JoanP27/ProyectoDI/blob/main/login2.jpg?raw=true">
 
@@ -153,12 +153,13 @@ Por el momento en este proyecto usare la base de datos de **SQL Server**
 </tr>
 </thead>
 <tbody>
-<td>Sesión</td>
+<td>Sesion</td>
 <td>El modelo que representa una sesión de una película</td>
 <td>
 <ul>
 <li> Id<b> (Tipo: int, Clave Primaria)</b> </li>
-<li> Película <b>(Tipo: Pelicula)</b> </li>
+<li> IdPelicula <b> (Tipo: int, Required) </b> </li>    
+<li> Pelicula <b>(Tipo: Pelicula)</b> </li>
 <li> IdSala <b> (Tipo: int, Required) </b> </li>
 <li> Sala<b> (Tipo: Sala, Clave foránea(IdSala))</b> </li>
 <li> Fecha <b>(Tipo: DateTime, Required)</b> </li>
@@ -168,13 +169,14 @@ Por el momento en este proyecto usare la base de datos de **SQL Server**
 </tr>
 
 <tr>
-<td>Película</td>
+<td>Pelicula</td>
 <td>El modelo que representa una película del cine</td>
 <td>
 <ul>
 <li> Id<b> (Tipo: int, Clave Primaria)</b> </li>
-<li> Nombre <b>(Tipo: String, Required, StringLength(100))</b> </li>
-<li> UrlImagen <b>(Tipo: String, StringLength(200), Required)</b></li>
+<li> Titulo <b>(Tipo: String, Required, StringLength(100))</b> </li>
+<li> Descripcion <b>(Tipo: String, Required, StringLength(100))</b> </li>
+<li> UrlImagen <b>(Tipo: String, StringLength(200), AllowNull)</b></li>
 <li> Sesiones<b> (Tipo: List&lt;Sesion&gt;, InverseProperty: Pelicula)</b> </li>
 </ul>
 </td>
@@ -252,9 +254,7 @@ Por el momento en este proyecto usare la base de datos de **SQL Server**
 <td>
 <ul>
 <li> Id<b> (Tipo: int, Clave Primaria)</b> </li>
-<li> Subtotal <b>(Tipo: Decimal, Required)</b> </li>
-<li> IdFila <b>(Tipo: int)</b> </li>
-<li> Fila <b>(Tipo: Fila)</b> </li>
+<li> Subtotal <b>(Tipo: Decimal(18, 4), Required)</b> </li>
 <li> IdAsiento <b>(Tipo: int, Required)</b> </li>
 <li> Asiento <b>(Tipo: Asiento, Clave foranea(idAsiento))</b> </li>
 <li> IdSesion<b>(Tipo: int, Required)</b> </li>

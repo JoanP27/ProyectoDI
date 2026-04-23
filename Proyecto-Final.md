@@ -450,6 +450,8 @@ Esta vista muestra una lista de sesiones dependiendo de la película seleccionad
 <td>
 <ul>
 <li><b>ViewSeatsCommand(ICommand&lt;Sesion&gt;):</b> Navega a la view de seleccion de asientos</li>
+<li><b>LoadPeliculasCommand(ICommand):</b> Muestra la lista de peliculas</li>
+<li><b>SelectedDateChanged(ICommand):</b> Muestra la lista fechas para elegir</li>
 </ul>
 </td>
 </tr>
